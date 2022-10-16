@@ -49,34 +49,10 @@ class MainMenu:
             self.check_events()
 
     def draw_texts(self):
-        PacMan = "PACMAN"
-        invaders = "Invaders"
-        tenPoints = "= 10 PTS"
-        twentyPoints = "= 20 PTS"
-        thirtyPoints = "= 30 PTS"
-        qPoints = "= ???"
+        PacMan = "PAC-MAN"
+        self.space_img = self.headder.render(PacMan, True, WHITE)
+        self.screen.blit(self.space_img, (265, 50))
 
-        self.invaders_img = self.subheadder.render(invaders, True,  BLACK, INDIGO)
-        self.space_img = self.headder.render(PacMan, True, BLACK, INDIGO)
-        self.ten_img = self.font.render(tenPoints, True, WHITE, INDIGO)
-        self.twen_img = self.font.render(twentyPoints, True, WHITE, INDIGO)
-        self.thir_img = self.font.render(thirtyPoints, True, WHITE, INDIGO)
-        self.q_img = self.font.render(qPoints, True, WHITE, INDIGO)
-
-        self.screen.blit(self.space_img, (400, 50))
-        self.screen.blit(self.invaders_img, (440, 182))
-        self.screen.blit(self.ten_img, (535, 370))
-        self.screen.blit(self.twen_img, (535, 430))
-        self.screen.blit(self.thir_img, (535, 500))
-        self.screen.blit(self.q_img, (535, 570))
-
-    """
-    def draw_score(self):
-        score = "Highscore: "
-        score += self.get_score()
-        self.score_img = self.font.render(score, True, BLACK, GREY)
-        self.screen.blit(self.score_img, (20,20))
-    """
 
     def draw(self):
         self.screen.fill(BLACK)
