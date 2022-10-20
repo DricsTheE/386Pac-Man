@@ -1,4 +1,6 @@
 import pygame as pg
+from ghost import Ghost 
+import game_functions as gf
 from button import Button
 from main_menu import MainMenu
 from setting import Settings
@@ -15,6 +17,7 @@ class Game:
         pg.display.set_caption("PacMan")
 
         self.pacman = PacMan(game=self)
+        self.ghost = Ghost(game=self)
 
         #self.sound = Sound(bg_music="sounds/main_theme.wav")
         #self.scoreboard = Scoreboard(game=self)
@@ -29,8 +32,10 @@ class Game:
 
     def play(self):
         while True:
+            gf.check_events(settings=self.settings, pacman = self.pacman)
             self.screen.fill(self.settings.bg_color)
             self.pacman.update()
+            self.ghost.update()
             pg.display.flip()
 
 
