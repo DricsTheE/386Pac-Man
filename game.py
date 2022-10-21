@@ -3,6 +3,7 @@ from button import Button
 from main_menu import MainMenu
 from setting import Settings
 from player import PacMan
+import game_functions as gf
 import sys
 
 
@@ -18,6 +19,7 @@ class Game:
 
         #self.sound = Sound(bg_music="sounds/main_theme.wav")
         #self.scoreboard = Scoreboard(game=self)
+        self.settings.speed_settings()
         self.game_active = False
 
     def reset(self):
@@ -29,6 +31,7 @@ class Game:
 
     def play(self):
         while True:
+            gf.check_events(settings=self.settings, pacman=self.pacman)
             self.screen.fill(self.settings.bg_color)
             self.pacman.update()
             pg.display.flip()

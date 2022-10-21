@@ -5,13 +5,13 @@ from vector import Vector
 
 
 class PacMan(Sprite):
-    pacman = pg.image.load('images/dot.png')
+    pacman = pg.image.load('images/pacman0.png')
     def __init__(self, game):
-        super().__init__()
+        #super().__init__()
         self.game = game
         self.screen = game.screen
         self.settings = game.settings
-        self.image = pg.image.load('images/dot.png')
+        self.image = pg.image.load('images/pacman0.png')
         self.rect = self.image.get_rect()
         self.screen_rect = game.screen.get_rect()
         self.vel = Vector()
