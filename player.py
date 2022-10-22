@@ -1,17 +1,19 @@
 import pygame as pg
 from pygame.sprite import Sprite
 from game_functions import clamp
+from maze import Maze
 from vector import Vector
+from settings import Settings
 
 
 class PacMan(Sprite):
-    pacman = pg.image.load('images/pacman0.png')
+    pacman = pg.image.load('images/characters/pacman0.png')
     def __init__(self, game):
         #super().__init__()
         self.game = game
-        self.screen = game.screen
         self.settings = game.settings
-        self.image = pg.image.load('images/pacman0.png')
+        self.screen = game.screen
+        self.image = pg.image.load('images/characters/pacman0.png')
         self.rect = self.image.get_rect()
         self.screen_rect = game.screen.get_rect()
         self.vel = Vector()

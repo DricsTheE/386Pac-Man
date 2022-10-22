@@ -1,8 +1,9 @@
 import pygame as pg
 from button import Button
 from main_menu import MainMenu
-from setting import Settings
+from settings import Settings
 from player import PacMan
+from maze import Maze
 import game_functions as gf
 import sys
 
@@ -11,10 +12,9 @@ class Game:
     def __init__(self):
         pg.init()
         self.settings = Settings()
-        size = self.settings.screen_width, self.settings.screen_height   # tuple
-        self.screen = pg.display.set_mode(size=size)
+        self.maze = Maze()
+        self.screen = self.settings.screen
         pg.display.set_caption("PacMan")
-
         self.pacman = PacMan(game=self)
 
         #self.sound = Sound(bg_music="sounds/main_theme.wav")
@@ -34,6 +34,7 @@ class Game:
             gf.check_events(settings=self.settings, pacman=self.pacman)
             self.screen.fill(self.settings.bg_color)
             self.pacman.update()
+            self.maze.drawMaze()
             pg.display.flip()
 
 

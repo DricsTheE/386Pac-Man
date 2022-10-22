@@ -1,6 +1,7 @@
 import sys
 import pygame as pg
 from vector import Vector
+from settings import Settings
 
 movement = {pg.K_LEFT: Vector(-1, 0),   # dictionary to map keys to Vector velocities
             pg.K_RIGHT: Vector(1, 0),
@@ -9,7 +10,6 @@ movement = {pg.K_LEFT: Vector(-1, 0),   # dictionary to map keys to Vector veloc
             }
 
 game_active = False
-
 
 def check_keydown_events(event, settings, pacman):
     key = event.key
@@ -33,7 +33,7 @@ def check_events(settings, pacman):
 def clamp(posn, rect, settings):
     left, top = posn.x, posn.y
     width, height = rect.width, rect.height
-    left = max(0, min(left, settings.screen_width - width))
-    top = max(0, min(top, settings.screen_height - height))
+    left = max(0, min(left, settings.width - width))
+    top = max(0, min(top, settings.height - height))
     return Vector(x=left, y=top), pg.Rect(left, top, width, height)
 
