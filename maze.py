@@ -3,12 +3,15 @@ import math
 from random import randrange
 import random
 from settings import Settings
+from player import PacMan
 
 mazePath = 'images/maze/'
 
 class Maze:
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
         self.settings = Settings()
+        self.pacman = PacMan(game=game)
 
     def drawMaze(self):
         self.settings.screen.fill((0,0,0))
@@ -41,3 +44,6 @@ class Maze:
                     i * self.settings.square + self.settings.square//2), self.settings.square//2)
                 
                 current_tile += 1
+
+        self.pacman.update()
+        pg.display.update()

@@ -20,7 +20,7 @@ class MainMenu:
         self.font = pg.font.SysFont(None, 48)
         self.headder = pg.font.SysFont(None, 190)
         self.subheadder = pg.font.SysFont(None, 110)
-        self.play_button = Button(self.screen, "PLAY GAME", ul=(450, 650))
+        self.play_button = Button(self.screen, "PLAY GAME", ul=(240, 650))
 
     def get_score(self):
         with open('score.txt', 'r') as s:
@@ -50,8 +50,8 @@ class MainMenu:
 
     def draw_texts(self):
         PacMan = "PAC-MAN"
-        self.space_img = self.headder.render(PacMan, True, WHITE)
-        self.screen.blit(self.space_img, (265, 50))
+        self.title = self.headder.render(PacMan, True, WHITE)
+        self.screen.blit(self.title, (40, 50))
 
 
     def draw(self):

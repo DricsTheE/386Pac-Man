@@ -12,7 +12,7 @@ class Game:
     def __init__(self):
         pg.init()
         self.settings = Settings()
-        self.maze = Maze()
+        self.maze = Maze(game=self)
         self.screen = self.settings.screen
         pg.display.set_caption("PacMan")
         self.pacman = PacMan(game=self)
@@ -33,7 +33,7 @@ class Game:
         while True:
             gf.check_events(settings=self.settings, pacman=self.pacman)
             self.screen.fill(self.settings.bg_color)
-            self.pacman.update()
+            #self.pacman.update()
             self.maze.drawMaze()
             pg.display.flip()
 
