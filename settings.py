@@ -59,7 +59,7 @@ class Settings():
         self.pelletColor = (222, 161, 133)
 
 
-        #self.alien1_points = 10
+        self.ghost_points = 100
         #self.alien2_points = 20
         #self.alien3_points = 30
 
