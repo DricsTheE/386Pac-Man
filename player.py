@@ -6,14 +6,14 @@ from settings import Settings
 
 
 class PacMan(Sprite):
-    pacman = pg.image.load('images/characters/pacman0.png')
+    pacman = pg.image.load('images/characters/pacman_right0.png')
     def __init__(self, game):
         #super().__init__()
         self.settings = Settings()
         self.game = game
         self.settings = game.settings
         self.screen = self.settings.screen
-        self.image = pg.image.load('images/characters/pacman0.png')
+        self.image = pg.image.load('images/characters/pacman_right0.png')
         self.rect = self.image.get_rect()
         self.screen_rect = self.settings.screen.get_rect()
         self.vel = Vector()
