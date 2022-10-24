@@ -6,6 +6,7 @@ from player import PacMan
 from maze import Maze
 import game_functions as gf
 import sys
+from scoreboard import Scoreboard
 
 
 class Game:
@@ -18,7 +19,7 @@ class Game:
         self.pacman = PacMan(game=self)
 
         #self.sound = Sound(bg_music="sounds/main_theme.wav")
-        #self.scoreboard = Scoreboard(game=self)
+        self.scoreboard = Scoreboard(game=self)
         self.settings.speed_settings()
         self.game_active = False
 
@@ -35,6 +36,7 @@ class Game:
             self.screen.fill(self.settings.bg_color)
             #self.pacman.update()
             self.maze.drawMaze()
+            self.scoreboard.update()
             pg.display.flip()
 
 
